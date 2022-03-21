@@ -1,0 +1,15 @@
+from ConcaveHull import ConcaveHull
+
+def find_contour(xx, yy, ga, thresh, tol):
+    xy0 = np.vstack([xx[(ga > thresh)], yy[(ga > thresh)]]).T
+    xy_mn = xy0.mean()
+    # xy_std = xy0.std()
+    ch = ConcaveHull()
+    # ch.loadpoints((xy0-xy_mn)/xy_std)
+    ch.loadpoints((xy0 - xy_mn))# / xy_std)
+    ch.calculatehull(tol=tol)
+    boundary_points = np.vstack(ch.boundary.exterior.coords.xy).T
+    return boundary_points + xy_mn
+
+
+    # return boundary_points*xy_std + xy_mn
