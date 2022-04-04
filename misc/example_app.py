@@ -91,7 +91,7 @@ def main():
         plt.plot(contour[:, 0], contour[:, 1], 'r--')
     plt.axis('square')
     plt.grid()
-    # plt.show()
+    plt.show()
     print(f"gaussian time:  {t1 - t0:0.5f}\n"
           f"contour time:   {t2 - t1:0.5f}\n"
           f"intersect time: {t3 - t3:0.5f}")
